@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <title></title>
     </head>
     <body>
@@ -27,8 +28,10 @@
         
 <!--table to display the database data-->
 
-<table cellspacing="15">
-            <thead>
+<table class="table">
+            <thead><tr>
+            <th><h3>Viewing <?php echo $results['corp']; ?></h3></th>
+                </tr>
                 <tr>
                     <th>Company</th>
                     <th>Incorp Date</th>
@@ -49,9 +52,11 @@
             </tr>
        
         </table>
-        <br/>
-        <br/>
-<!--button to return to data entry-->
-        <button onclick="window.location.href='view.php'">Back</button>
+        <br/><br/>
+        
+    <center>
+<!--button to return to viewing all companies-->
+        <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button>
+    </center>
     </body>
 </html>

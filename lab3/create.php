@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <title></title>
     </head>
     <body>
@@ -18,54 +19,48 @@
             
             $db = getDatabase();
             
-            $stmt = $db->prepare("INSERT INTO corps SET corp = :corp, incorp_dt = NOW(), email = :email, zipcode = :zipcode, owner = :owner, phone = :phone where id = :id");
+            $stmt = $db->prepare("INSERT INTO corps SET corp = :corp, incorp_dt = NOW(), email = :email, zipcode = :zipcode, owner = :owner, phone = :phone");
 //linking text box data with database data
-                $id = filter_input(INPUT_POST, 'id');
                 $corp = filter_input(INPUT_POST, 'corp');
-                $incorp_dt = filter_input(INPUT_POST, 'incorp_dt');
                 $email = filter_input(INPUT_POST, 'email');
                 $zipcode = filter_input(INPUT_POST, 'zipcode');
                 $owner = filter_input(INPUT_POST, 'owner');
                 $phone = filter_input(INPUT_POST, 'phone');
         
-            $binds = array( 
-                ":id" => $id,
+            $binds = array(
                     ":corp" => $corp,
-                    ":incorp_dt" => $incorp_dt,
                     ":email" => $email,
                     ":zipcode" => $zipcode,
                     ":owner" => $owner,
                     ":phone" => $phone );
             
 //displays 'data added' if data is added sucessfully
-            if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {   
+            if ($stmt->execute($binds)) {   
                 $results = 'Data Added';
-            }
-            }
-            
         ?>
-        <h3>
-            <?php echo $results; ?>
-        </h3>
-        
+    <center><b><h1><?php echo $results; ?></h1></b></center><br />
+        <?php
+        }} ?>
 <!--data entry form-->
-        <form method="post" action="#">
+<center>
+            <h3>Add New Listing</h3><br />
+        <form class="form-group" method="post" action="#">
             
                 Corporation: <input type="text" value="" name="corp" />
-                <br />
+                <br /><br />
                 Email: <input type="text" value="" name="email" />
-                <br />    
+                <br /><br />    
                 Zip code: <input type="text" value="" name="zipcode" />
-                <br />
+                <br /><br />
                 Owner: <input type="text" value="" name="owner" />
-                <br />  
-                Phone #: <input type="text" value="" name="phone" />
+                <br /><br /> 
+                Phone: <input type="text" value="" name="phone" />
             <br/>
             <br/>
 <!--submit data button-->
-            <input type="submit" value="Submit" /></form>
-            <br/>
+            <input class="btn btn-default" type="submit" value="Submit" /></form>
 <!--link to all data in database table-->
-            <button onclick="window.location.href='view.php'">Back</button>
+            <button class="btn btn-default" onclick="window.location.href='index.php'">Back</button>
+</center>
     </body>
 </html>

@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <title></title>
     </head>
     <body>
@@ -19,10 +20,13 @@
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
             } ?>
 <!--table to display the company names-->
-        <table>
+    <center>
+        <br />
+       <button class="btn btn-default" onclick="window.location.href='index.php'">Back</button>
+        <table class="table">
             <thead>
                 <tr>
-                    <th><h3>Companies</h3></th>
+                    <th><h3>Viewing All Companies</h3></th>
                 </tr>
             </thead>
          <?php foreach ($results as $row): ?>
@@ -35,6 +39,8 @@
             <?php endforeach; ?>
             
         </table>
+       <button class="btn btn-default" onclick="window.location.href='index.php'">Back</button>
+    </center>
         <br/>
         
         

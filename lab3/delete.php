@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <title></title>
     </head>
     <body>
@@ -21,7 +22,9 @@
        
         $isDeleted = false;
         if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-            $isDeleted = true;
+            $isDeleted = true;?>
+    <center><b><h1> Record <?php echo $id; ?> Deleted</h1></b>
+            <?php
         }  
         ?>
         
@@ -30,6 +33,6 @@
         <h1> Record <?php echo $id; ?> Not Deleted</h1>
         <?php endif; ?>
         
-        <p> <a href="view.php">Back</a></p>
+        <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button></center>
     </body>
 </html>

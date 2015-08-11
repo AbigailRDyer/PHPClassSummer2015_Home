@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <title></title>
     </head>
     <body>
@@ -39,7 +40,9 @@
                 
                 if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                    $results = 'Record updated';
-                   echo $results;
+                   ?>
+        <h1><b><center><?php echo $results; ?></b></h1></center><br />
+        <?php
                 }}
              else {
                 $id = filter_input(INPUT_GET, 'id');
@@ -64,22 +67,25 @@
         ?>
         
         
-        
-        <form method="post" action="#">            
-            Corp <input type="text" value="<?php echo $corp; ?>" name="corp" />
-            <br />
-            Email <input type="text" value="<?php echo $email; ?>" name="email" />
-            <br />  
-            Zip Code <input type="text" value="<?php echo $zipcode; ?>" name="zipcode" />
-            <br />  
-            Owner <input type="text" value="<?php echo $owner; ?>" name="owner" />
-            <br />  
-            Phone <input type="text" value="<?php echo $phone; ?>" name="phone" />
-            <br />  
+        <center>
+            <h3>Update Listing</h3><br />
+        <form class="form-group" method="post" action="#">            
+            Corporation: <input type="text" value="<?php echo $corp; ?>" name="corp" />
+            <br /><br />
+            Email: <input type="text" value="<?php echo $email; ?>" name="email" />
+            <br /><br />
+            Zip Code: <input type="text" value="<?php echo $zipcode; ?>" name="zipcode" />
+            <br /><br />  
+            Owner: <input type="text" value="<?php echo $owner; ?>" name="owner" />
+            <br /><br />  
+            Phone: <input type="text" value="<?php echo $phone; ?>" name="phone" />
+            <br /><br />  
             <input type="hidden" value="<?php echo $id; ?>" name="id" /> 
-            <input type="submit" value="Update" />
+            <br /><br />
+            <input class="btn btn-default" type="submit" value="Update" />
         </form>
-        
-        <p> <a href="view.php">Back</a></p>
+    
+        <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button>
+    </center>
     </body>
 </html>
