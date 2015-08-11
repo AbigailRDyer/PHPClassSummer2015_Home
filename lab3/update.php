@@ -7,15 +7,14 @@
     </head>
     <body>
         <?php
-        
+//connecting to the database connection and functions files        
             include './dbConn.php';
             include './functions.php';
             
-            
-            
             $results = '';
             $db = getDatabase();
-            
+
+ //execute if button is clicked           
             if (isPostRequest()) {
                 
                 
@@ -28,7 +27,7 @@
                 $owner = filter_input(INPUT_POST, 'owner');
                 $phone = filter_input(INPUT_POST, 'phone');
                 
-                
+ //binding the inputted data to update DB              
                 $binds = array(
                     ":id" => $id,
                     ":corp" => $corp,
@@ -37,7 +36,8 @@
                     ":zipcode" => $zipcode,
                     ":owner" => $owner,
                     ":phone" => $phone );
-                
+
+//successful message                
                 if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                    $results = 'Record updated';
                    ?>
@@ -66,7 +66,7 @@
         
         ?>
         
-        
+<!-- form to update the listing -->        
         <center>
             <h3>Update Listing</h3><br />
         <form class="form-group" method="post" action="#">            
@@ -84,7 +84,8 @@
             <br /><br />
             <input class="btn btn-default" type="submit" value="Update" />
         </form>
-    
+            
+<!-- navigation -->    
         <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button>
     </center>
     </body>

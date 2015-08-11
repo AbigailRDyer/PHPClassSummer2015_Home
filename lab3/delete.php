@@ -7,19 +7,19 @@
     </head>
     <body>
         <?php
-        
+ //connection to DB and functions       
             include './dbConn.php';
             include './functions.php';
             
             $db = getDatabase();
-            
+ //delete using ID           
             $id = filter_input(INPUT_GET, 'id'); 
             $stmt = $db->prepare("DELETE FROM corps where id = :id");
             
             $binds = array(
                 ":id" => $id
             );
-       
+//if deleted, success message       
         $isDeleted = false;
         if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
             $isDeleted = true;?>
@@ -28,11 +28,12 @@
         }  
         ?>
         
-        
+ <!-- unsuccessful -->      
         <?php if ( !$isDeleted ): ?> 
         <h1> Record <?php echo $id; ?> Not Deleted</h1>
         <?php endif; ?>
         
+ <!-- navigation -->          
         <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button></center>
     </body>
 </html>

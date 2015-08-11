@@ -7,13 +7,15 @@
     </head>
     <body>
         <?php
+//connecting to DB and functions
         include './dbConn.php';
         include './functions.php';
         
         $db = getDatabase(); 
          
         $id = filter_input(INPUT_GET, 'id');
-        
+ 
+//pulling and binding ID from selection
         $stmt = $db->prepare("SELECT * FROM corps WHERE id = :id");
         $binds = array(
                 ":id" => $id
@@ -27,7 +29,6 @@
          ?>
         
 <!--table to display the database data-->
-
 <table class="table">
             <thead><tr>
             <th><h3>Viewing <?php echo $results['corp']; ?></h3></th>
@@ -55,7 +56,10 @@
         <br/><br/>
         
     <center>
-<!--button to return to viewing all companies-->
+
+<!-- navigation -->
+        <button class="btn btn-default" onClick="location.href='update.php'">Update</button>
+        <button class="btn btn-default" onClick="location.href='delete.php'">Delete</button>
         <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button>
     </center>
     </body>

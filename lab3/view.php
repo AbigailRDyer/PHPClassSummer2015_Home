@@ -19,10 +19,14 @@
             if ($stmt->execute() && $stmt->rowCount() > 0) {
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
             } ?>
-<!--table to display the company names-->
     <center>
         <br />
+        
+<!-- Navigation -->
+       <button class="btn btn-default" onClick="location.href='create.php'">Add New</button>
        <button class="btn btn-default" onclick="window.location.href='index.php'">Back</button>
+       
+<!--table to display the company names-->
         <table class="table">
             <thead>
                 <tr>
@@ -30,6 +34,7 @@
                 </tr>
             </thead>
          <?php foreach ($results as $row): ?>
+<!-- Navigation -->
                 <tr>
                     <td><?php echo $row['corp']; ?></td>
                     <td><a href="read.php?id=<?php echo $row['id']; ?>">Read</a></td>
@@ -39,6 +44,8 @@
             <?php endforeach; ?>
             
         </table>
+<!-- Navigation -->
+       <button class="btn btn-default" onClick="location.href='create.php'">Add New</button>
        <button class="btn btn-default" onclick="window.location.href='index.php'">Back</button>
     </center>
         <br/>
