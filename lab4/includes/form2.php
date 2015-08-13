@@ -24,7 +24,7 @@
     </select>
     <br /><br />
     <input class="btn btn-default" type="hidden" value="search" name="action" />
-    <input class="btn btn-default" type="submit" value="Submit" name="action" />
+    <input class="btn btn-default" type="submit" value="Search" name="action" />
     <input class="btn btn-default" type="reset" value="Reset" name="reset" />
     <br /><br />
     

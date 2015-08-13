@@ -1,9 +1,9 @@
 <?php
 
-function getALLTestData(){
+function getALLTestData($columnsOrder, $orderBy){
     $db = getDatabase();
            
-           $stmt = $db->prepare("SELECT * FROM corps");
+           $stmt = $db->prepare("SELECT * FROM corps GROUP BY $columnsOrder ORDER BY $orderBy");
            
             $results = array();
             if ($stmt->execute() && $stmt->rowCount() > 0) {
@@ -23,7 +23,7 @@ function searchTest($column, $search){
            );
             $results = array();
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $results = $stmt->fetch(PDO::FETCH_ASSOC);
             }
             return $results;
 }

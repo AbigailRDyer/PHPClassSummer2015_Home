@@ -18,14 +18,16 @@
         include './includes/functions.php';
         include './includes/dbData.php';
         
-        
+        $action = filter_input(INPUT_POST, 'action');
         
         include './includes/form2.php';
         
-        $column = '';
-        $search = '';
-        $results = searchTest($column, $search);
-        
+        if ( $action === 'Search' ) {
+       
+        $column = filter_input(INPUT_POST, 'columnSearch');
+        $search = filter_input(INPUT_POST, 'searchCorps');
+        $sresults = searchTest($column, $search);
+        }
         
         ?>
         
@@ -34,6 +36,13 @@
         
         <?php
         include './includes/form1.php';
+        
+        if ( $action === 'View All' ) {
+       
+        $columnsOrder = filter_input(INPUT_POST, 'columnsOrder');
+        $orderBy = filter_input(INPUT_POST, 'orderBy');
+        $oresults = getALLTestData($columnsOrder, $orderBy);
+        }
         ?>
     
 <!-- Navigation 
