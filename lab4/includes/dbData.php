@@ -1,3 +1,4 @@
+
 <?php
 
 function getALLTestData($columnsOrder, $orderBy){
@@ -28,3 +29,9 @@ function searchTest($column, $search){
             return $results;
 }
 
+function searchResults(){
+    
+    $result = filter_input(INPUT_GET, $results);
+            echo $result;
+
+}
