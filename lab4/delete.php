@@ -8,8 +8,8 @@
     <body>
         <?php
  //connection to DB and functions       
-            include './dbConn.php';
-            include './functions.php';
+            include './includes/dbConn.php';
+            include './includes/functions.php';
             
             $db = getDatabase();
  //delete using ID           

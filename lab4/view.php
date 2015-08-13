@@ -9,7 +9,7 @@
     <body>
         <?php
 //connecting to the database connection file
-        include './dbConn.php';
+        include './includes/dbConn.php';
         $db = getDatabase();
         
 //select all from corps table
