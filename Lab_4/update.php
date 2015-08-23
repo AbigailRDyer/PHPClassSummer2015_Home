@@ -8,8 +8,8 @@
     <body>
         <?php
 //connecting to the database connection and functions files        
-            include './dbConn.php';
-            include './functions.php';
+            include '/includes/dbConn.php';
+            include '/includes/functions.php';
             
             $results = '';
             $db = getDatabase();
@@ -86,7 +86,7 @@
         </form>
             
 <!-- navigation -->    
-        <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button>
+        <button class="btn btn-default" onclick="window.location.href='index.php'">Back</button>
     </center>
     </body>
 </html>

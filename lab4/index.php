@@ -14,19 +14,16 @@
         
         <?php
 //connecting to the database connection file
-        include './includes/dbconn.php';
-        include './includes/functions.php';
-        include './includes/dbData.php';
+        include '/includes/dbconn.php';
+        include '/includes/functions.php';
+        include '/includes/dbData.php';
         
-        $action = filter_input(INPUT_POST, 'action');
+        $action = filter_input(INPUT_POST, 'submit1');
         
         include './includes/form2.php';
-        
-        if ( $action === 'Search' ) {
+        if ( $action === 'submit1' ) {
        
-        $column = filter_input(INPUT_POST, 'columnSearch');
-        $search = filter_input(INPUT_POST, 'searchCorps');
-        $sresults = searchTest($column, $search);
+        echo 'submited form 1';
         }
         
         ?>
@@ -36,12 +33,9 @@
         
         <?php
         include './includes/form1.php';
-        
-        if ( $action === 'View All' ) {
-       
-        $columnsOrder = filter_input(INPUT_POST, 'columnsOrder');
-        $orderBy = filter_input(INPUT_POST, 'orderBy');
-        $oresults = getALLTestData($columnsOrder, $orderBy);
+        if ( $action === 'submit2' ) {
+        $columnsOrder = filter_input(INPUT_GET, 'columnsOrder');
+        echo 'submited form 2';
         }
         ?>
     

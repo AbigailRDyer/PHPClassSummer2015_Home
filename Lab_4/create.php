@@ -9,8 +9,8 @@
     <body>
         <?php
 //connecting to the database connection file and the fuctions file
-            include './dbConn.php';
-            include './functions.php';
+            include 'includes/dbConn.php';
+            include 'includes/functions.php';
             
             $results = '';
             

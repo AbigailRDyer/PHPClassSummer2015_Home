@@ -8,8 +8,8 @@
     <body>
         <?php
  //connection to DB and functions       
-            include './dbConn.php';
-            include './functions.php';
+            include '/includes/dbConn.php';
+            include '/includes/functions.php';
             
             $db = getDatabase();
  //delete using ID           
@@ -34,6 +34,6 @@
         <?php endif; ?>
         
  <!-- navigation -->          
-        <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button></center>
+        <button class="btn btn-default" onclick="window.location.href='index.php'">Back</button></center>
     </body>
 </html>

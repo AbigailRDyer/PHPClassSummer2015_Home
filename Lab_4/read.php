@@ -8,8 +8,8 @@
     <body>
         <?php
 //connecting to DB and functions
-        include './includes/dbConn.php';
-        include './includes/functions.php';
+        include '/includes/dbConn.php';
+        include '/includes/functions.php';
         
         $db = getDatabase(); 
          
@@ -60,7 +60,7 @@
 <!-- navigation -->
         <button class="btn btn-default" onClick="location.href='update.php'">Update</button>
         <button class="btn btn-default" onClick="location.href='delete.php'">Delete</button>
-        <button class="btn btn-default" onclick="window.location.href='view.php'">Back</button>
+        <button class="btn btn-default" onclick="window.location.href='index.php'">Back</button>
     </center>
     </body>
 </html>

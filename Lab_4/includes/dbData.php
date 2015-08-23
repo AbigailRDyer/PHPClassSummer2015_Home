@@ -3,35 +3,32 @@
 
 function getALLTestData($columnsOrder, $orderBy){
     $db = getDatabase();
-           
-           $stmt = $db->prepare("SELECT * FROM corps GROUP BY $columnsOrder ORDER BY $orderBy");
-           
+    
+           $search = $columnsOrder + " " + $orderBy;
+           $stmt = $db->prepare("SELECT * FROM corps ORDER BY :columnsOrder;");
+           $binds = array(
+               ":columnsOrder" => $search
+           );
             $results = array();
-            if ($stmt->execute() && $stmt->rowCount() > 0) {
+            if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
             return $results;
 }
 
-function searchTest($column, $search){
+function searchSpec($corpName, $columnsSearch){
     $db = getDatabase();
            
-           $stmt = $db->prepare("SELECT * FROM corps WHERE $column LIKE :search");
+           $value = $corpName;
+           $stmt = $db->prepare("SELECT * FROM corps WHERE :columnsSearch LIKE '%':value'%'");
            
-           $search = '%'.$search.'%';
            $binds = array(
-               ":search" => $search
-           );
+                ":columnsSearch" => $columnsSearch,
+                ":value" => strtoupper($value)
+            );
             $results = array();
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-                $results = $stmt->fetch(PDO::FETCH_ASSOC);
+                $results = $stmt->fetchALL(PDO::FETCH_ASSOC);
             }
             return $results;
-}
-
-function searchResults(){
-    
-    $result = filter_input(INPUT_GET, $results);
-            echo $result;
-
 }

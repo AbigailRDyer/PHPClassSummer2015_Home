@@ -9,16 +9,11 @@
     <body>
         <?php
 //connecting to the database connection file
-        include './dbConn.php';
-        $db = getDatabase();
-        
-//select all from corps table
-            $stmt = $db->prepare("SELECT * FROM corps");
-            $results = array();
-            
-            if ($stmt->execute() && $stmt->rowCount() > 0) {
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-            } ?>
+        include 'includes/dbConn.php';
+        include 'includes/dbData.php';
+        include 'index.php';
+        $results = getALLTestData($columnsOrder, $orderBy);
+?>
     <center>
         <br />
         
@@ -29,14 +24,18 @@
 <!--table to display the company names-->
         <table class="table">
             <thead>
-                <tr>
-                    <th><h3>Viewing All Companies</h3></th>
-                </tr>
+                
             </thead>
          <?php foreach ($results as $row): ?>
 <!-- Navigation -->
                 <tr>
+                    <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['corp']; ?></td>
+                    <td><?php echo $row['incorp_dt']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['owner']; ?></td>
+                    <td><?php echo $row['zipcode']; ?></td>
+                    <td><?php echo $row['phone']; ?></td>
                     <td><a href="read.php?id=<?php echo $row['id']; ?>">Read</a></td>
                     <td><a href="update.php?id=<?php echo $row['id']; ?>">Update</a></td>            
                     <td><a href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>            
