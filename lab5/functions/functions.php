@@ -1,3 +1,4 @@
+
 <?php
 //functions to wait running php code until data is submitted
 function isPostRequest() {
@@ -6,3 +7,4 @@ function isPostRequest() {
 function isGetRequest() {
     return (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'GET');
 }
+

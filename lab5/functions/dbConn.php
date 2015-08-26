@@ -1,3 +1,4 @@
+
 <?php
         
 //connecting to the database phpclasssummer2015
@@ -14,4 +15,4 @@
             return $db;
         }
         
-        
+
