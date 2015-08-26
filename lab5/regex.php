@@ -1,6 +1,6 @@
 <?php
 //REGEX TIME!
     $siteRegex = '/(https?:\/\/[\da-z\.-]+\.[a-z\.]{2,6}[\/\w \.-]+)/';
-    preg_match_all($siteRegex, $output, $links);
+    preg_match_all($siteRegex, $output, $allLinks);
    
-    $removeDuplicates = array_unique($links[0]);
+    $links = array_unique($allLinks[0]);
