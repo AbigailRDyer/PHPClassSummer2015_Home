@@ -3,6 +3,7 @@
 
 function getALLTestData($columnsOrder, $orderBy){
     $db = getDatabase();
+    
            
            $stmt = $db->prepare("SELECT * FROM corps GROUP BY $columnsOrder ORDER BY $orderBy");
            
@@ -27,11 +28,4 @@ function searchTest($column, $search){
                 $results = $stmt->fetch(PDO::FETCH_ASSOC);
             }
             return $results;
-}
-
-function searchResults(){
-    
-    $result = filter_input(INPUT_GET, $results);
-            echo $result;
-
 }
