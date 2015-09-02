@@ -7,8 +7,8 @@
     <body>
         
         <?php
-        require_once '../../includes/session-start.req-inc.php';
-        require_once '../../includes/access-required.html.php';
+        //require_once '../../includes/session-start.req-inc.php';
+        //require_once '../../includes/access-required.html.php';
         require '../../functions/categoryFunctions.php';
         require '../../functions/until.php';
         

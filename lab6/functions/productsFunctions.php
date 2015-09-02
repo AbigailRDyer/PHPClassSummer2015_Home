@@ -62,3 +62,20 @@ function getAllProducts() {
     return $results;
 }
 
+function UpdateProduct($value, $value2, $value3, $value4) {
+    include_once '../../functions/dbConn.php';
+    $db = getDatabase();
+    $stmt = $db->prepare("UPDATE products SET product = :product, price = :price, image = :image WHERE product_id = :product_id");
+    $binds = array(
+        ":product_id" => $value,
+        ":product" => $value2,
+        ":price" => $value3,
+        ":image" => $value4);
+    if ($stmt->execute($binds)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+                   
+}

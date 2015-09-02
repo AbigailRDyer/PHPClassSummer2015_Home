@@ -2,12 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
         <title></title>
     </head>
     <body>
         <?php
-        require_once '../../includes/session-start.req-inc.php';
-        require_once '../../includes/access-required.html.php';
+        //require_once '../../includes/session-start.req-inc.php';
+        //require_once '../../includes/access-required.html.php';
         require '../../functions/productsFunctions.php';
         require '../../functions/categoryFunctions.php';
         require '../../functions/until.php';
@@ -42,8 +43,8 @@
             }
         }
         ?>
-        
-        <h1>Add Product</h1>
+    <center>
+        <h1>Add Product</h1><br />
         
         <?php if (isset($errors) && count($errors) > 0) : ?>
         <ul>
@@ -54,7 +55,7 @@
         <?php endif; ?>
         
         <?php include '../../includes/results.html.php'; ?>
-               
+             
         <form method="post" action="#">
             
             <select name="category_id">
@@ -63,15 +64,20 @@
                     <?php echo $row['category']; ?>
                 </option>
             <?php endforeach; ?>
-            </select>
-            Product Name : <input type="text" name="product" value="" /> 
-            <br />
-            Price : <input type="text" name="price" value="" /> 
-            <br />
-            <input type="submit" value="Submit" />
-        </form>
+            </select><br /><br /><div class="form-group">  
+            Product Name: <input type="text" class="form-control" name="product" value="" /> 
+            </div><br /><div class="form-group">  
+            Price: <input type="text" width=50 class="form-control" name="price" value="" /> 
+            <br /><br /></div>
+            <label>Image Upload: </label>
+            <div class="form-group">  
+            <input type="file" name="image">
+            </div>
+            <input class="btn btn-default" type="submit" value="Submit" />
+        </form><br />
+        <button class="btn btn-default" onClick="location.href='index.php'">Back</button>
         
-        
+    </center>
         
     </body>
 </html>

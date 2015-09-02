@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
         <title></title>
     </head>
     <body>
@@ -46,6 +47,7 @@
             <?php endforeach; ?>
             </select>
             <input type="submit" value="Delete" />
+            <button class="btn btn-default" onClick="location.href='index.php'">Back</button>
         </form>
     </body>
 </html>
