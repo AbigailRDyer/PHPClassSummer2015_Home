@@ -8,10 +8,13 @@
     </head>
     <body>
         <?php
-        require_once '../../includes/session-start.req-inc.php';
+        require_once '../../includes/session-start.php';
         require_once '../../includes/access-required.html.php';
-        require '../../functions/categoryFunctions.php';
-        require '../../functions/until.php';
+         
+        include_once '../../functions/dbConn.php';
+        include_once '../../functions/categoryFunctions.php';
+        include_once '../../functions/productsFunctions.php';
+        include_once '../../functions/until.php';
         
         $categories = getAllCategories();
         
@@ -32,13 +35,13 @@
         }
         
         ?>
+    <center>
+        <h1>Delete Category</h1><br/>
         
-        <h1>Delete Category</h1>
-        
-        <?php include '../../includes/results.html.php'; ?>
         
         <form method="post" action="#">
             
+            <div class="form-group">
             <select name="category_id">
             <?php foreach ($categories as $row): ?>
                 <option value="<?php echo $row['category_id']; ?>">
@@ -46,8 +49,11 @@
                 </option>
             <?php endforeach; ?>
             </select>
-            <input type="submit" value="Delete" />
-            <button class="btn btn-default" onClick="location.href='index.php'">Back</button>
-        </form>
+            </div>
+            <input class="btn btn-default" type="submit" value="Delete" /><br/><br/>
+        </form><br/>
+        <button class="btn btn-default" onClick="location.href='index.php'">Back</button>
+        <?php include '../../includes/results.html.php'; ?>
+    </center>
     </body>
 </html>

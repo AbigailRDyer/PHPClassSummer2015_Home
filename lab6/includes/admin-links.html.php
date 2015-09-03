@@ -1,8 +1,8 @@
 
+<center>
 <p>You are logged in</p>
-<h2>Links</h2>
-<ul>
-    <li><a href="category/">Category Admin</a></li>
-    <li><a href="products/">Products Admin</a></li>
-</ul>
+<button onClick="location.href='products/index.php'">Manage Products</button>
+<button onClick="location.href='category/index.php'">Manage Categories</button>
+</center>
+
 

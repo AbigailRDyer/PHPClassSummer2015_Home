@@ -2,15 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
         <title></title>
     </head>
     <body>
         
         <?php
-        //require_once '../../includes/session-start.req-inc.php';
-        //require_once '../../includes/access-required.html.php';
-        require '../../functions/categoryFunctions.php';
-        require '../../functions/until.php';
+        require_once '../../includes/session-start.php';
+        require_once '../../includes/access-required.html.php';
+         
+        include_once '../../functions/dbConn.php';
+        include_once '../../functions/categoryFunctions.php';
+        include_once '../../functions/productsFunctions.php';
+        include_once '../../functions/until.php';
         
         $results ='';
         
@@ -26,17 +30,21 @@
               $results ='Category is not valid';
             }
         }?>
+            
+    <center>
+        <h1>Add Category</h1><br/>
         
-        <h1>Add Category</h1>
+    
+        <form method="post" action="#">
+            <div class="form-group">
+            Category Name : <input type="text" name="category" value="" /><br/><br/>
+            <input class="btn btn-default" type="submit" value="Submit" /><br/>
+            </div>
+        </form>
+        <button class="btn btn-default" onClick="location.href='index.php'">Back</button>
         
         <?php include '../../includes/results.html.php'; ?>
-        
-        
-        <form method="post" action="#">
-            Category Name : <input type="text" name="category" value="" />
-            <input type="submit" value="Submit" />
-        </form>
-        
+    </center>
         
     </body>
 </html>

@@ -6,7 +6,6 @@
 
 
 function createCategory($value) {
-    include_once '../../functions/dbConn.php';
     $db = getDatabase();
     $stmt = $db->prepare("INSERT INTO categories SET category = :category");
     $binds = array(
@@ -29,7 +28,6 @@ function isValidCategory($value) {
 }
 
 function getAllCategories() {
-    include_once '../../functions/dbConn.php';
     $db = getDatabase();
     $stmt = $db->prepare("SELECT * FROM categories");
     $results = array();
@@ -41,7 +39,6 @@ function getAllCategories() {
 }
 
 function deleteCategory($value) {
-    include_once '../../functions/dbConn.php';
     $db = getDatabase();
     $stmt = $db->prepare("DELETE FROM categories WHERE category_id = :category_id");
     $binds = array(
@@ -55,7 +52,6 @@ function deleteCategory($value) {
 }
 
 function UpdateCategory($value, $value2) {
-    include_once '../../functions/dbConn.php';
     $db = getDatabase();
     $stmt = $db->prepare("UPDATE categories SET category = :category WHERE category_id = :category_id");
     $binds = array(

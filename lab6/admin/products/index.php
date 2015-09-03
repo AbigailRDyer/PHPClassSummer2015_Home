@@ -8,12 +8,13 @@
     </head>
     <body>
         <?php
-        //require_once '../../includes/session-start.req-inc.php';
-        //require_once '../../includes/access-required.html.php';
-        require '../../functions/productsFunctions.php';
-        require '../../functions/categoryFunctions.php';
-        require '../../functions/until.php';
-        require '../../functions/dbConn.php';
+        require_once '../../includes/session-start.php';
+        require_once '../../includes/access-required.html.php';
+         
+        include_once '../../functions/dbConn.php';
+        include_once '../../functions/categoryFunctions.php';
+        include_once '../../functions/productsFunctions.php';
+        include_once '../../functions/until.php';
         
         $db = getDatabase();
         $stmt = $db->prepare("SELECT * FROM products");
@@ -38,6 +39,8 @@
                     <td><a href="delete.php?id=<?php echo $row['product_id']; ?>">Delete</a></td>            
                 </tr>
             <?php endforeach; ?>
+        </table>
+                <button class="btn btn-default" onClick="location.href='../index.php'">Back</button>
     </center>
     </body>
 </html>

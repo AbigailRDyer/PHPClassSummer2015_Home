@@ -3,14 +3,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
         <title></title>
     </head>
     <body>
         <?php
-        require_once '../../includes/session-start.req-inc.php';
+        require_once '../../includes/session-start.php';
         require_once '../../includes/access-required.html.php';
-        require '../../functions/productsFunctions.php';
-        require '../../functions/until.php';
+         
+        include_once '../../functions/dbConn.php';
+        include_once '../../functions/categoryFunctions.php';
+        include_once '../../functions/productsFunctions.php';
+        include_once '../../functions/until.php';
         
         $products = getAllProducts();
         
@@ -31,13 +35,14 @@
         }
         
         ?>
-        
+    <center>
         <h1>Delete Product</h1>
         
         <?php include '../../includes/results.html.php'; ?>
         
         <form method="post" action="#">
             
+            <div class="form-group"> 
             <select name="product_id">
             <?php foreach ($products as $row): ?>
                 <option value="<?php echo $row['product_id']; ?>">
@@ -45,7 +50,10 @@
                 </option>
             <?php endforeach; ?>
             </select>
-            <input type="submit" value="Delete" />
+            <input class="btn btn-default" type="submit" value="Delete" />
+                </div>
         </form>
+            <button class="btn btn-default" onClick="location.href='index.php'">Back</button><br/>
+    </center>
     </body>
 </html>
