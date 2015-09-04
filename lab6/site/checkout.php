@@ -6,12 +6,12 @@
     </head>
     <body>
         <?php
-            require_once '../includes/session-start.req-inc.php';
+            require_once '../includes/session-start.php';
             require_once '../functions/cart-functions.php';
             require_once '../functions/dbConn.php';
             require_once '../functions/until.php';
-            require_once '../functions/category-functions.php';
-            require_once '../functions/products-functions.php';
+            require_once '../functions/categoryFunctions.php';
+            require_once '../functions/productsFunctions.php';
                         
             startCart(); 
                 
@@ -24,7 +24,6 @@
             foreach ($items as $id) {
                 $checkoutProducts[] = getProduct($id);
             }
-            
             
             include '../includes/checkout.php';
         ?>

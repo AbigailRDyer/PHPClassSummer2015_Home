@@ -2,9 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
         <title></title>
     </head>
     <body>
+    <center>
+        <header>
+        <button class="btn btn-default" onClick="location.href='checkout.php'">View Cart</button>
+        </header>
         <?php
             require_once '../includes/session-start.php';
             require_once '../functions/cart-functions.php';
@@ -33,7 +38,7 @@
             include_once '../includes/products.php';
             
             
-            
         ?>
+    </center>
     </body>
 </html>
