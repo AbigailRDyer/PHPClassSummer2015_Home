@@ -5,14 +5,14 @@
  * email
  * password
  */
-function isValidUser($email, $pass) {
+function isValidUser($email, $password) {
     include_once '../functions/dbConn.php';
     $db = getDatabase();
     $stmt = $db->prepare("SELECT * FROM users WHERE email = :email and password = :password");
-    $pass = sha1($pass);
+    $password = sha1($password);
     $binds = array(
         ":email" => $email,
-        ":password" => $pass        
+        ":password" => $password
     );
     if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
         return true;

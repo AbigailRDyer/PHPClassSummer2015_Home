@@ -78,7 +78,7 @@ function UpdateProduct($value, $value2, $value3, $value4) {
 
 function uploadProductImage() {
     
-    $imageName = false;
+    $imageName = "";
     
     try {
         // Undefined | Multiple Files | $_FILES Corruption Attack
@@ -149,4 +149,20 @@ function getProduct($id) {
         
     return $results;
     }
+}
+
+function getProductByCategory($id) {
+    $db = getDatabase();
+    $stmt = $db->prepare("SELECT * FROM products JOIN categories ON categories.category_id = products.category_id WHERE products.category_id=:category_id");
+     $binds = array(
+        ":category_id" => $id
+    );
+    
+    $results = array();
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+     
+    return $results;
+    
 }

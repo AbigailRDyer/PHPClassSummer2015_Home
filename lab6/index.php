@@ -2,13 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <title></title>
     </head>
     <body>
+    <center>
+        <h1>Abby's Shopping Site</h1><br />
         
-        <h1>Shopping Site</h1>
-        
-        <a href="site/">Enter Site</a> | <a href="admin/">Admin Login</a>
-        
+        <button class="btn btn-default" onClick="location.href='site/'">Enter Site</button>
+        <button class="btn btn-default" onClick="location.href='admin/'">Admin Login</button>
+    </center>
     </body>
 </html>

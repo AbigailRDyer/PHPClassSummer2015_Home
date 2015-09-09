@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
         <title></title>
     </head>
     <body>
@@ -26,6 +27,10 @@
             }
             
             include '../includes/checkout.php';
+                
         ?>
+    <center>
+        <button class="btn btn-default" onClick="location.href='index.php'">Continue Shopping</button>
+    </center>
     </body>
 </html>

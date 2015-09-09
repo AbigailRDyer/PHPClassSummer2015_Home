@@ -17,7 +17,7 @@
             if ( isPostRequest() ) {
                 
                 $email = filter_input(INPUT_POST, 'email');
-                $password = filter_input(INPUT_POST, 'pass');
+                $password = filter_input(INPUT_POST, 'password');
                 
                 if ( isValidUser($email, $password) ) {
                     $_SESSION['isValidUser'] = true;                    
@@ -35,6 +35,8 @@
         ?>
         
         <?php include '../includes/results.html.php'; ?>
+        
+        <?php include '../includes/loginform.html.php'; ?>
     </center>
     </body>
 </html>
