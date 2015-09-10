@@ -1,6 +1,6 @@
 <?php
 /*
- * users
+ * users :
  * user_id
  * email
  * password
