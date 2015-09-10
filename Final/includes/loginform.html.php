@@ -3,6 +3,6 @@
     <br />
     Password : <input name="password" type="password" value="" />
     <br />
-    <input type="submit" value="Sign In" />
+    <input class="btn btn-default" type="submit" value="Sign In" />
 </form>
 
